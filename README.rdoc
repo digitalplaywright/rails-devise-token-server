@@ -1,0 +1,23 @@
+== How to Use
+
+The server can be started with:
+
+rails s
+
+== Test API
+
+#sign up
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d ' {"user":{"email":"<email>","password":"<password>", "password_confirmation" : "<password>"}}'  http://localhost:3000/users.json
+
+
+#sign in
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d ' {"user":{"email":"<email>","password":"<password>"}}'  http://localhost:3000/users/sign_in.json
+
+#request a resource
+curl -v -H "Accept: application/json" -H "Content-type: application/json" http://localhost:3000/api/tasks.json?auth_token=<token>
+
+#logout
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X DELETE http://localhost:3000/users/sign_out.json?auth_token=<token>
+
+
+
